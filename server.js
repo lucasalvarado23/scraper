@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var methodOverride = require('method-override');
-
-
-router.get("/", function(req, res) {
-    res.render("index");
-});
-
+var routes = require("./config/routes");
 
 module.exports = router;
 var express = require("express");
@@ -20,9 +15,6 @@ var app = express();
 
 var router = express.Router();
 
-//require(".config/routes")(router);
-//app.use('/', routes);
-
 app.use(express.static(__dirname + "/public"));
 
 app.engine("handlebars", expressHandlebars({
@@ -35,7 +27,9 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
-app.use(router);
+app.use(routes);
+
+app.use('/', routes);
 
 var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadLines";
 

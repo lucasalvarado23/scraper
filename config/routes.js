@@ -1,9 +1,10 @@
+var express = require("express");
+var router = express.Router();
 var scrape = require("../scripts/scrape");
 
-var headlinesController = require("../controllers/headlines");
+var headlinesController = require("../controllers/headline");
 var notesController = require("../controllers/notes");
 
-module.exports = function(router) {
 			//route renders homepage
 	router.get("/", function(req, res){
 		res.render("home");
@@ -49,7 +50,7 @@ module.exports = function(router) {
 	router.patch("api/headlines", function(req, res){
 		headlinesController.update(req.body, function(err, data){
 			res.json(data);
-		};
+		});
 	});
 
 	router.get("api/notes/:headlines_id?", function(req, res){
@@ -77,4 +78,4 @@ module.exports = function(router) {
 		});
 	});
 
-}
+module.exports = router;

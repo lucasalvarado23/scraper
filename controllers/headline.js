@@ -7,7 +7,7 @@ module.exports = {
 	fetch: function(cb) {
 		scrape(function(data){
 			var articles = data;
-			for (var i=0, i < articles.lenght; i++) {
+			for (var i=0; i < articles.lenght; i++) {
 				articles[i].date = makeDate();
 				articles[i].saved = false;
 			}
@@ -32,7 +32,11 @@ module.exports = {
 	update: function(query, cb) {
 		Headline.update({_id: query._id}, {
 			$set: query
-		}.{},cb);
+		},
+		{
+
+		},
+		cb);
 	}
 }
 	
