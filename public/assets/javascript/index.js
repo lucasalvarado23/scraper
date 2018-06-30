@@ -35,11 +35,11 @@ $(document).ready(function() {
                 "Save Article",
                 "</a>",
                 "</h3>"
-                "</div>"
-                "<div class='panel-body'>",
-                article.summary,
-                "</div>",
-                "</div"
+                //"</div>"
+                //"<div class='panel-body'>",
+                //article.summary,
+                //"</div>",
+                //"</div"
             ].join(""));
 
         panel.data("_id", article._id);
@@ -52,14 +52,14 @@ $(document).ready(function() {
                 "<h4> We don't have new articles </h4>",
                 "</div",
                 "<div class='panel panel-default'>",
-                "div class='panel-heading text-center'>",
+                //"div class='panel-heading text-center'>",
                 "<h3>what would you like to do?</h3>",
                 "</div>",
                 "<div class='panel-body text-center'>",
                 "<h4><a class='scrape-new'>Try scraping new articles</a></h4>",
                 "<h4><a href='/saved>Go to saved articles</a></h4>",
                 "</div>"
-                "</div>"
+                //"</div>"
             ].join(""));
         articleContainer.append(emptyAlert);
     }
